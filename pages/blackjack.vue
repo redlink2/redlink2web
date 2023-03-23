@@ -205,12 +205,67 @@
 	.blackjack {
 	display: flex;
 	flex-direction: column;
+	justify-content: center;
 	align-items: center;
+	height: 100vh;
+	max-width: 100vw;
+	padding: 0.5rem;
 	}
 
+	.dealer,
+	.player {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	margin: 0.5rem;
+	width: 100%
+	}
+
+	.dealer-cards,
+	.player-cards {
+	display: flex;
+	flex-wrap: nowrap;
+	justify-content: center;
+	align-items: center;
+	max-width: 100%;
+	overflow-x: auto;
+	}
+
+	.dealer-score,
+	.player-score {
+		margin: 0.25rem 0;
+		font-size: 1.5rem;
+	}
 	.card {
-	max-width: 50px;
-	margin: 0 5px;
+	width: 8vw;
+	height: auto;
+	margin: 0.25rem;
+	/* max-width: 50px;
+	margin: 0 5px; */
+	}
+
+	.controls {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	flex-wrap: wrap;
+	width: 100%;
+	}
+
+	.control-button {
+	margin: 0.25rem;
+	padding: 0.75rem 1.5rem;
+	font-size: 1.25rem;
+	border: none;
+	border-radius: 4px;
+	background-color: #444;
+	color: #fff;
+	cursor: pointer;
+	}
+
+	.control-button:hover {
+	background-color: #555;
 	}
 
 	.bet .wallet {
