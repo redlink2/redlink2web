@@ -203,33 +203,33 @@
 
 <style scoped>
 	.blackjack {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	height: 100vh;
-	max-width: 100vw;
-	padding: 0.5rem;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		height: 100vh;
+		max-width: 100vw;
+		padding: 0.5rem;
 	}
 
 	.dealer,
 	.player {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	margin: 0.5rem;
-	width: 100%
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		margin: 0.5rem;
+		width: 100%
 	}
 
 	.dealer-cards,
 	.player-cards {
-	display: flex;
-	flex-wrap: nowrap;
-	justify-content: center;
-	align-items: center;
-	max-width: 100%;
-	overflow-x: auto;
+		display: flex;
+		flex-wrap: nowrap;
+		justify-content: center;
+		align-items: center;
+		max-width: 100%;
+		overflow-x: auto;
 	}
 
 	.dealer-score,
@@ -238,37 +238,42 @@
 		font-size: 1.5rem;
 	}
 	.card {
-	width: 8vw;
-	height: auto;
-	margin: 0.25rem;
-	/* max-width: 50px;
-	margin: 0 5px; */
+		width: 8vw;
+		height: auto;
+		margin: 0.25rem;
+		/* max-width: 50px;
+		margin: 0 5px; */
+	}
+	@media (max-width: 768px) { /* Set the breakpoint at which the rule should apply */
+		.card {
+			width: 8vh; /* Change the width to 8vh for mobile devices */
+		}
 	}
 
 	.controls {
-	display: flex;
-	justify-content: space-around;
-	align-items: center;
-	flex-wrap: wrap;
-	width: 100%;
+		display: flex;
+		justify-content: space-around;
+		align-items: center;
+		flex-wrap: wrap;
+		width: 100%;
 	}
 
 	.control-button {
-	margin: 0.25rem;
-	padding: 0.75rem 1.5rem;
-	font-size: 1.25rem;
-	border: none;
-	border-radius: 4px;
-	background-color: #444;
-	color: #fff;
-	cursor: pointer;
+		margin: 0.25rem;
+		padding: 0.75rem 1.5rem;
+		font-size: 1.25rem;
+		border: none;
+		border-radius: 4px;
+		background-color: #444;
+		color: #fff;
+		cursor: pointer;
 	}
 
 	.control-button:hover {
-	background-color: #555;
+		background-color: #555;
 	}
 
 	.bet .wallet {
-	margin-bottom: 20px;
+		margin-bottom: 20px;
 	}
 </style>
