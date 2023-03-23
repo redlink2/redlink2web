@@ -1,37 +1,46 @@
 <template>
 	<div class="blackjack">
 		<h1>Blackjack</h1>
+		<div class="dealer">
+			<div class="dealer-score">
+				Dealer: {{ handScore(dealerCards) }}
+			</div>
+			<div class="dealer-cards">
+			<img
+				v-for="(card, index) in dealerCards"
+				:key="index"
+				:src="getCardImagePath(card, index === 0 && !gameOver)"
+				alt="Card"
+				class="card"
+			/>
+			</div>
+		</div>
+		<div class="player">
+			<div class="player-cards">
+			<img
+				v-for="(card, index) in playerCards"
+				:key="index"
+				:src="getCardImagePath(card)"
+				alt="Card"
+				class="card"
+			/>
+			</div>
+			<div class="player-score">
+				Player: {{ handScore(playerCards) }}
+			</div>
+		</div>
 		<div class="wallet">
 		Gems: ${{ wallet }}
 		</div>
-		<div class="player-score">
-			Player: {{ handScore(playerCards) }}
-		</div>
-		<div class="dealer-score">
-			Dealer: {{ handScore(dealerCards) }}
+		<div class="controls">
+			<button class="controls-button" v-if="gameOver" @click="resetGame">Play Again</button>
+			<button class="controls-button" v-if="!gameOver" @click="">Increase</button>
+			<button class="controls-button" v-if="!gameOver" @click="">Decrease</button>
+			<button class="controls-button" v-if="!gameOver" @click="hit">Hit</button>
+			<button class="controls-button" v-if="!gameOver" @click="stay">Stay</button>
+			<button class="controls-button" v-if="!gameOver" @click="">Help</button>
 		</div>
 		<div v-if="gameOver" class="game-result">{{ gameResult }}</div>
-		<div class="player-cards">
-		<img
-			v-for="(card, index) in playerCards"
-			:key="index"
-			:src="getCardImagePath(card)"
-			alt="Card"
-			class="card"
-		/>
-		</div>
-		<div class="dealer-cards">
-		<img
-			v-for="(card, index) in dealerCards"
-			:key="index"
-			:src="getCardImagePath(card, index === 0 && !gameOver)"
-			alt="Card"
-			class="card"
-		/>
-		</div>
-		<button v-if="!gameOver" @click="hit">Hit</button>
-		<button v-if="!gameOver" @click="stay">Stay</button>
-		<button v-if="gameOver" @click="resetGame">Play Again</button>
 	</div>
 </template>
 
@@ -39,9 +48,10 @@
 	export default {
 	data() {
 		return {
-			wallet: 500,
 			bet: 0,
 			minBet: 50,
+			maxBet: 500,
+			wallet: 500,
 			playerCards: [],
 			dealerCards: [],
 			gameOver: false,
