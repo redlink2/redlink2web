@@ -1,0 +1,19 @@
+The website, called "Redlink2's Playground," is a 90s/2000s themed portfolio website that aims to provide a fun and engaging browsing experience for visitors of all ages. The website is built on the Nuxt3 JS framework and features a colorful and playful design, with a focus on pixel art and space-themed elements.
+
+The landing page serves as a directory and introduction to the website, with large clickable thumbnails that lead to the different sections of the website. The landing page also incorporates interactive elements such as hover effects, animations, and a Wayback Machine-inspired navigation bar that adds a playful touch.
+
+The different sections of the website include:
+
+    The Games section, which features simple web games such as blackjack and a retro-style platformer game.
+
+    The Startpage, which is a customizable homepage that includes a search bar, quick access links, and eye-catching design elements.
+
+    The Art Gallery, which showcases Redlink2's pixel art and 3D renders in a masonry-style grid layout. The gallery is organized into categories such as medium or subject matter, and includes download buttons for each image.
+
+    The Blog, which is a very personal feed-style blog with language and copy that is playful and approachable, featuring humor or pop culture references throughout the website.
+
+    The Links section, which includes a mix of tech, art, joke, and interesting website links.
+
+The website also features interactive elements such as quizzes or games, animations or hover effects, and hidden Easter eggs that are discovered by clicking or hovering over certain elements on the website.
+
+The overall tone of the website is playful and child-friendly, with bright and bold colors, fun animations, and whimsical design elements. The website aims to provide a sense of exploration and discovery for visitors, encouraging them to interact with the website and feel like it is the product.
