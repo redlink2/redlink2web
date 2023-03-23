@@ -30,7 +30,10 @@
 			</div>
 		</div>
 		<div class="wallet">
-		Gems: ${{ wallet }}
+			Gems: ${{ wallet }}
+		</div>
+		<div class="bet">
+			Bet: ${{ bet }}
 		</div>
 		<div class="controls">
 			<button class="controls-button" v-if="gameOver" @click="resetGame">Play Again</button>
@@ -200,7 +203,7 @@
 	margin: 0 5px;
 	}
 
-	.wallet {
+	.bet .wallet {
 	margin-bottom: 20px;
 	}
 </style>
