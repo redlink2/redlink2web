@@ -37,8 +37,8 @@
 		</div>
 		<div class="controls">
 			<button class="controls-button" v-if="gameOver" @click="resetGame">Play Again</button>
-			<button class="controls-button" v-if="!gameOver" @click="">Increase</button>
-			<button class="controls-button" v-if="!gameOver" @click="">Decrease</button>
+			<button class="controls-button" v-if="!gameOver" @click="decreaseBet">Decrease</button>
+			<button class="controls-button" v-if="!gameOver" @click="increaseBet">Increase</button>
 			<button class="controls-button" v-if="!gameOver" @click="hit">Hit</button>
 			<button class="controls-button" v-if="!gameOver" @click="stay">Stay</button>
 			<button class="controls-button" v-if="!gameOver" @click="">Help</button>
@@ -51,7 +51,7 @@
 	export default {
 	data() {
 		return {
-			bet: 0,
+			bet: 50,
 			minBet: 50,
 			maxBet: 500,
 			wallet: 500,
@@ -60,6 +60,8 @@
 			gameOver: false,
 			gameResult: "",
 			deck: [],
+			bettingOpen: true,
+			win: null
 		};
 	},
 	created() {
@@ -115,6 +117,9 @@
 			if (this.handScore(this.playerCards) > 21) {
 				this.endGame("Player busts. Dealer wins!");
 			}
+			if (this.bettingOpen === true) {
+				this.bettingOpen = false;
+			}
 		},
 		stay() {
 			while (this.handScore(this.dealerCards) < 17) {
@@ -141,14 +146,18 @@
 			} else {
 				this.endGame("It's a draw!");
 			}
+
+			if (this.bettingOpen === true) {
+				this.bettingOpen = false;
+			}
 		},
 		increaseBet() {
-			if (this.bet < this.maxBet) {
+			if (this.bettingOpen && this.bet < this.maxBet) {
 				this.bet += 50;
 			}
 		},
 		decreaseBet() {
-			if (this.bet > this.minBet) {
+			if (this.bettingOpen && this.bet > this.minBet) {
 				this.bet -= 50;
 			}
 		},
@@ -186,6 +195,7 @@
 			this.dealInitialCards();
 			this.gameOver = false;
 			this.gameResult = "";
+			this.bettingOpen = true;
 		},
 	},
 	};
