@@ -139,6 +139,16 @@
 				this.endGame("It's a draw!");
 			}
 		},
+		increaseBet() {
+			if (this.bet < this.maxBet) {
+				this.bet += 50;
+			}
+		},
+		decreaseBet() {
+			if (this.bet > this.minBet) {
+				this.bet -= 50;
+			}
+		},
 		validateBet() {
 			return this.bet >= this.minBet && this.bet <= this.maxBet;
 		},
