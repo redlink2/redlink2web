@@ -82,14 +82,38 @@
 
 	/* Navbar */
 	.navbar {
-		/* Add your custom styles for the navbar */
+		position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+		height: 10vh;
+		min-height: 50px;
+		background-color: gray;
+		background-image: url('/path/to/your/background-image.jpg');
+		background-size: cover;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		border-bottom: 1px solid black;
+		z-index: 100;
 	}
 
 	.nav-item {
-		/* Add your custom styles for the nav items */
+		color: rgb(255, 0, 0);
+		margin: 0 1rem;
+		text-decoration: none;
+		transition: color 0.3s ease;
+	}
+
+	.nav-item:hover {
+		color: rgb(0, 255, 0);
 	}
 
 	/* Main content */
+
+	main {
+		padding: 10vh;
+	}
 	.container {
 		display: grid;
 		grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -98,6 +122,7 @@
 	}
 
 	.thumbnail {
+		text-align: center;
 		position: relative;
 		cursor: pointer;
 		overflow: hidden;
@@ -149,6 +174,10 @@
 	@media screen and (max-width: 768px) {
 		.container {
 			grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+		}
+
+		.nav-item {
+			margin: 0 0.5rem;
 		}
 
 		/* Add more responsive styles as needed */
