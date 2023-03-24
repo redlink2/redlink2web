@@ -168,6 +168,7 @@
 
 	.social-link {
 		/* Add your custom styles for the social links */
+		padding-right: 1vw;
 	}
 
 	/* Responsive Design */
