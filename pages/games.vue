@@ -4,7 +4,7 @@
 		<ul>
 			<li><nuxt-link to="/">Home</nuxt-link></li>
 			<!-- tic-tac-toe -->
-			<li><a href="#">Coming Soon</a></li>
+			<li><a href="/tictactoe">tictactoe</a></li>
 			<!-- blackjack -->
 			<li><nuxt-link to="/blackjack">Play Blackjack</nuxt-link></li>
 			<!-- simon -->
