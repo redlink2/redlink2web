@@ -59,9 +59,9 @@
 		flex: 1;
 		font-size: 5vh;
 		cursor: pointer;
-		/* background-color: yellow; */
+		background-color: gray;
 		transition: all 0.2s ease-in-out;
-		border: 2px solid green;
+		border: 0.3vh ridge green;
 	}
 
 	.cell:hover {

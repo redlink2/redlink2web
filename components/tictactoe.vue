@@ -1,7 +1,7 @@
 <template>
 	<div class="tic-tac-toe">
 		<div v-for="(row, rowIndex) in grid" :key="rowIndex" class="row">
-			<div v-for="(cell, cellIndex) in row" :key="cellIndex" class="cell" @click="makeMove(rowIndex, cellIndex)">
+			<div v-for="(cell, cellIndex) in row" :key="cellIndex" :style="{ backgroundColor: getBackgroundColor(cell) }" class="cell" @click="makeMove(rowIndex, cellIndex)">
 				{{ cell }}
 			</div>
 		</div>
@@ -28,6 +28,15 @@
 				this.grid[rowIndex][cellIndex] = this.currentPlayer
 				this.currentPlayer = this.currentPlayer === 'X' ? 'O' : 'X'
 				this.checkForWinner()
+			}
+		},
+		getBackgroundColor(cell) {
+			if (cell === 'X') {
+				return '#e60000'
+			} else if (cell === 'O') {
+				return '#00aaff'
+			} else {
+				return 'white'
 			}
 		},
 		checkForWinner() {
