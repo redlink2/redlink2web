@@ -75,9 +75,8 @@
 
 	.cell {
 		flex: 1;
-		padding: 20px;
+		padding: 1vw;
 		text-align: center;
-		font-size: 4em;
 		cursor: pointer;
 	}
 </style>

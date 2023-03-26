@@ -16,6 +16,11 @@
 </script>
 
 <style>
+	html {
+		background-color: purple;
+		font-family: 'Panic Sans', sans-serif;
+	}
+
 	.game-container {
 		display: flex;
 		flex-direction: column;
@@ -25,16 +30,18 @@
 	}
 
 	h1 {
-		margin-bottom: 30px;
+		margin-bottom: 10vh;
+		font-size: 5vh;
+		color: darkturquoise;
 	}
 
 	.tic-tac-toe {
 		display: flex;
 		flex-wrap: wrap;
-		width: 400px;
-		height: 400px;
-		border: 4px solid #333;
-		border-radius: 20px;
+		width: 25vw;
+		height: 45vh;
+		border: 0.8vh solid turquoise;
+		border-radius: 2vh;
 		overflow: hidden;
 	}
 
@@ -50,14 +57,15 @@
 		align-items: center;
 		justify-content: center;
 		flex: 1;
-		font-size: 80px;
+		font-size: 5vh;
 		cursor: pointer;
-		background-color: #fff;
+		/* background-color: yellow; */
 		transition: all 0.2s ease-in-out;
+		border: 2px solid green;
 	}
 
 	.cell:hover {
-		background-color: #eee;
+		background-color: cyan;
 	}
 
 	.cell:hover > * {
@@ -69,7 +77,6 @@
 		display: block;
 		width: 100%;
 		height: 100%;
-		background-color: rgba(0, 0, 0, 0.1);
 		position: absolute;
 		top: 0;
 		left: 0;
@@ -102,7 +109,7 @@
 		}
 
 		.cell {
-			font-size: 60px;
+			font-size: 4vh;
 		}
 	}
 </style>
