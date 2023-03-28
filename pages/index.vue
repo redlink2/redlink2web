@@ -1,6 +1,6 @@
 <template>
 	<div v-if="isLoading" class="preloader">
-		<img src="/images/preloader.gif" alt="Loading..." />
+		<!-- <img src="/images/preloader.gif" alt="Loading..." /> -->
 	</div>
 	<header class="navbar">
 		<nav>
