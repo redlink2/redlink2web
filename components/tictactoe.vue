@@ -101,6 +101,10 @@ export default {
 		},
 
 		getBackgroundColor(cell, rowIndex, cellIndex) {
+			if (this.winner === 'tie') {
+				return 'gray';
+			}
+
 			if (this.winningCells.some(([row, col]) => row === rowIndex && col === cellIndex)) {
 				return 'green';
 			}
