@@ -36,7 +36,7 @@ export default {
 			let winningCells;
 
 			// check rows
-			for (let i = 0; i < 4; i++) {
+			for (let i = 0; i < 3; i++) {
 				winningCells = this.checkRow(i);
 				if (winningCells) {
 					this.winner = this.grid[i][0];
@@ -46,7 +46,7 @@ export default {
 			}
 
 			// check columns
-			for (let j = 0; j < 4; j++) {
+			for (let j = 0; j < 3; j++) {
 				winningCells = this.checkColumn(j);
 				if (winningCells) {
 					this.winner = this.grid[0][j];
@@ -54,17 +54,18 @@ export default {
 					return;
 				}
 			}
+
 			// check diagonals
 			winningCells = this.checkDiagonal1();
 			if (winningCells) {
-				this.winner = this.grid[0][0];
+				this.winner = this.grid[winningCells[0][0]][winningCells[0][1]];
 				this.winningCells = winningCells;
 				return;
 			}
 
 			winningCells = this.checkDiagonal2();
 			if (winningCells) {
-				this.winner = this.grid[0][3];
+				this.winner = this.grid[winningCells[0][0]][winningCells[0][1]];
 				this.winningCells = winningCells;
 				return;
 			}
@@ -76,26 +77,40 @@ export default {
 			}
 		},
 		checkRow(row) {
-			if (this.grid[row][0] !== '' && this.grid[row][0] === this.grid[row][1] && this.grid[row][1] === this.grid[row][2] && this.grid[row][2] === this.grid[row][3]) {
-				return [[row, 0], [row, 1], [row, 2], [row, 3]];
+			for (let i = 0; i < 2; i++) {
+				if (this.grid[row][i] !== '' && this.grid[row][i] === this.grid[row][i + 1] && this.grid[row][i + 1] === this.grid[row][i + 2]) {
+					return [[row, i], [row, i + 1], [row, i + 2]];
+				}
 			}
 			return null;
 		},
 		checkColumn(col) {
-			if (this.grid[0][col] !== '' && this.grid[0][col] === this.grid[1][col] && this.grid[1][col] === this.grid[2][col] && this.grid[2][col] === this.grid[3][col]) {
-				return [[0, col], [1, col], [2, col], [3, col]];
+			for (let i = 0; i < 2; i++) {
+				if (this.grid[i][col] !== '' && this.grid[i][col] === this.grid[i + 1][col] && this.grid[i + 1][col] === this.grid[i + 2][col]) {
+					return [[i, col], [i + 1, col], [i + 2, col]];
+				}
 			}
 			return null;
 		},
+
 		checkDiagonal1() {
-			if (this.grid[0][0] !== '' && this.grid[0][0] === this.grid[1][1] && this.grid[1][1] === this.grid[2][2] && this.grid[2][2] === this.grid[3][3]) {
-				return [[0, 0], [1, 1], [2, 2], [3, 3]];
+			for (let i = 0; i < 2; i++) {
+				for (let j = 0; j < 2; j++) {
+					if (this.grid[i][j] !== '' && this.grid[i][j] === this.grid[i + 1][j + 1] && this.grid[i + 1][j + 1] === this.grid[i + 2][j + 2]) {
+						return [[i, j], [i + 1, j + 1], [i + 2, j + 2]];
+					}
+				}
 			}
 			return null;
 		},
+
 		checkDiagonal2() {
-			if (this.grid[0][3] !== '' && this.grid[0][3] === this.grid[1][2] && this.grid[1][2] === this.grid[2][1] && this.grid[2][1] === this.grid[3][0]) {
-				return [[0, 3], [1, 2], [2, 1], [3, 0]];
+			for (let i = 0; i < 2; i++) {
+				for (let j = 3; j > 1; j--) {
+					if (this.grid[i][j] !== '' && this.grid[i][j] === this.grid[i + 1][j - 1] && this.grid[i + 1][j - 1] === this.grid[i + 2][j - 2]) {
+						return [[i, j], [i + 1, j - 1], [i + 2, j - 2]];
+					}
+				}
 			}
 			return null;
 		},
