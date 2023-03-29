@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<h1>Your '90s/2000s Nostalgic Game</h1>
+		<h1>Simon Says</h1>
 		<SimonGame />
 	</div>
 </template>
