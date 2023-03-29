@@ -38,7 +38,7 @@
 				isLoading: true,
 				sections: [
 					{ name: 'Games', path: '/games', image: '/images/games-thumbnail.png', description: 'Play fun 90s/2000s games!' },
-					{ name: 'Startpage', path: '/startpage', image: '/gallery/thumbs/start.png', description: 'Your personalized startpage.' },
+					{ name: 'Startpage', path: '/startpage', image: '/assets/gallery/thumbs/start.png', description: 'Your personalized startpage.' },
 					{ name: 'Art Gallery', path: '/art-gallery', image: '/images/art-gallery-thumbnail.png', description: 'Explore amazing artwork.' },
 					{ name: 'Blog', path: '/blog', image: '/images/blog-thumbnail.png', description: 'Read about interesting topics.' },
 					{ name: 'Links', path: '/links', image: '/images/links-thumbnail.png', description: 'Discover other cool websites.' },
@@ -61,7 +61,8 @@
 
 <style scoped>
 	body {
-		background-image: url('~/assets/images/thumbs/wavy.png');
+		background-image: url('/images/wavy.jpg');
+		background-repeat: repeat;
 	}
 
 	/* Title */
@@ -80,7 +81,6 @@
 		height: 10vh;
 		min-height: 50px;
 		background-color: gray;
-		background-image: url('~/assets/images/gallery/thumbs/wavy.png');
 		background-size: cover;
 		display: flex;
 		justify-content: center;
@@ -124,6 +124,7 @@
 
 	.thumbnail-image {
 		width: 100%;
+		height: 100%;
 		transition: transform 0.3s ease;
 	}
 
