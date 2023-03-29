@@ -3,11 +3,7 @@
 		<!-- <img src="/images/preloader.gif" alt="Loading..." /> -->
 	</div>
 	<header class="navbar">
-		<nav>
-			<nuxt-link to="/games" class="nav-item">Games</nuxt-link>
-			<nuxt-link to="/startpage" class="nav-item">Startpage</nuxt-link>
-			<!-- ... -->
-		</nav>
+		<h1 class="title">Redlink2's Playground</h1>
 	</header>
 	<main>
 		<div class="container">
@@ -22,18 +18,16 @@
 			>
 			<img :src="section.image" :alt="section.name" class="thumbnail-image" />
 			<div class="thumbnail-hover">
-				<h3>{{ section.name }}</h3>
 				<p>{{ section.description }}</p>
 			</div>
 		</div>
     </div>
 	</main>
 	<footer class="footer">
-		<div class="social-links">
+		<!-- <div class="social-links">
 			<a href="https://twitter.com/your_handle" target="_blank" rel="noopener noreferrer" class="social-link">Twitter</a>
 			<a href="https://facebook.com/your_page" target="_blank" rel="noopener noreferrer" class="social-link">Facebook</a>
-			<!-- ... -->
-		</div>
+		</div> -->
 	</footer>
 </template>
 
@@ -44,7 +38,7 @@
 				isLoading: true,
 				sections: [
 					{ name: 'Games', path: '/games', image: '/images/games-thumbnail.png', description: 'Play fun 90s/2000s games!' },
-					{ name: 'Startpage', path: '/startpage', image: '/images/startpage-thumbnail.png', description: 'Your personalized startpage.' },
+					{ name: 'Startpage', path: '/startpage', image: '/gallery/thumbs/start.png', description: 'Your personalized startpage.' },
 					{ name: 'Art Gallery', path: '/art-gallery', image: '/images/art-gallery-thumbnail.png', description: 'Explore amazing artwork.' },
 					{ name: 'Blog', path: '/blog', image: '/images/blog-thumbnail.png', description: 'Read about interesting topics.' },
 					{ name: 'Links', path: '/links', image: '/images/links-thumbnail.png', description: 'Discover other cool websites.' },
@@ -66,18 +60,15 @@
 
 
 <style scoped>
-	/* Preloader */
-	.preloader {
-		position: fixed;
-		top: 0;
-		left: 0;
-		right: 0;
-		bottom: 0;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		background-color: rgba(0, 0, 0, 0.8);
-		z-index: 9999;
+	body {
+		background-image: url('~/assets/images/thumbs/wavy.png');
+	}
+
+	/* Title */
+	.title {
+		color: rgb(255, 0, 0);
+		font-size: 5vh;
+		font-family: 'Panic Sans', sans-serif;
 	}
 
 	/* Navbar */
@@ -89,7 +80,7 @@
 		height: 10vh;
 		min-height: 50px;
 		background-color: gray;
-		background-image: url('/path/to/your/background-image.jpg');
+		background-image: url('~/assets/images/gallery/thumbs/wavy.png');
 		background-size: cover;
 		display: flex;
 		justify-content: center;
@@ -117,11 +108,14 @@
 	.container {
 		display: grid;
 		grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-		gap: 1rem;
-		padding: 2rem;
+		gap: 5vh;
+		padding-top: 2rem;
 	}
 
+	/* Thumbnails */
 	.thumbnail {
+		height: 50vh;
+		border: 2px solid black;
 		text-align: center;
 		position: relative;
 		cursor: pointer;
@@ -139,20 +133,21 @@
 
 	.thumbnail-hover {
 		position: absolute;
-		top: 0;
-		left: 0;
 		width: 100%;
 		height: 100%;
-		background-color: rgba(0, 0, 0, 0.5);
+		background-color: rgba(255, 0, 0, 0.5);
 		opacity: 0;
 		transition: opacity 0.3s ease;
 		display: flex;
 		flex-direction: column;
-		justify-content: center;
+		justify-content: flex-end;
 		align-items: center;
+		padding-bottom: 20vh;
 	}
 
 	.thumbnail {
+		display: flex;
+		align-items: center;
 		position: relative;
 		cursor: pointer;
 		overflow: hidden;
@@ -161,18 +156,12 @@
 		opacity: 1;
 	}
 
-	/* Footer */
-	.footer {
-		/* Add your custom styles for the footer */
-	}
-
-	.social-link {
-		/* Add your custom styles for the social links */
-		padding-right: 1vw;
-	}
-
 	/* Responsive Design */
 	@media screen and (max-width: 768px) {
+		.title {
+			font-size: 4vh;
+		}
+
 		.container {
 			grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
 		}
@@ -181,7 +170,14 @@
 			margin: 0 0.5rem;
 		}
 
-		/* Add more responsive styles as needed */
+		.thumbnail {
+			height: 20vh;
+			width: 50vw;
+		}
+
+		.thumbnail-hover {
+			padding-bottom: 5vh;
+		}
 	}
 
 	/* Custom Cursor */
