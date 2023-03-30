@@ -7,7 +7,7 @@
 <script>
 	export default {
 		beforeMount() {
-			window.location.href = 'https://redlink2.com';
+			window.location.replace('https://redlink2.com');
 		},
 	}
 </script>
