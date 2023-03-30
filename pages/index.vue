@@ -1,7 +1,4 @@
 <template>
-	<div v-if="isLoading" class="preloader">
-		<!-- <img src="/images/preloader.gif" alt="Loading..." /> -->
-	</div>
 	<header class="navbar">
 		<h1 class="title">Redlink2's Playground</h1>
 	</header>
@@ -16,19 +13,13 @@
 				role="button"
 				:aria-label="section.name"
 			>
-			<img :src="section.image" :alt="section.name" class="thumbnail-image" />
-			<div class="thumbnail-hover">
-				<p>{{ section.description }}</p>
+				<img :src="section.image" :alt="section.name" class="thumbnail-image" />
+				<div class="thumbnail-hover">
+					<p>{{ section.description }}</p>
+				</div>
 			</div>
 		</div>
-    </div>
 	</main>
-	<footer class="footer">
-		<!-- <div class="social-links">
-			<a href="https://twitter.com/your_handle" target="_blank" rel="noopener noreferrer" class="social-link">Twitter</a>
-			<a href="https://facebook.com/your_page" target="_blank" rel="noopener noreferrer" class="social-link">Facebook</a>
-		</div> -->
-	</footer>
 </template>
 
 <script>
@@ -37,19 +28,14 @@
 			return {
 				isLoading: true,
 				sections: [
-					{ name: 'Games', path: '/games', image: '/images/games-thumbnail.png', description: 'Play fun 90s/2000s games!' },
-					{ name: 'Startpage', path: '/startpage', image: '/assets/gallery/thumbs/start.png', description: 'Your personalized startpage.' },
-					{ name: 'Art Gallery', path: '/art-gallery', image: '/images/art-gallery-thumbnail.png', description: 'Explore amazing artwork.' },
+					{ name: 'Games', path: '/games', image: '/images/games-thumbnail.png', description: 'Play fun 90s games!' },
+					{ name: 'Art Gallery', path: '/gallery', image: '/images/art-gallery-thumbnail.png', description: 'Explore amazing artwork.' },
 					{ name: 'Blog', path: '/blog', image: '/images/blog-thumbnail.png', description: 'Read about interesting topics.' },
+					{ name: 'Startpage', path: '/startpage', image: '/assets/gallery/thumbs/start.png', description: 'Your personalized startpage.' },
 					{ name: 'Links', path: '/links', image: '/images/links-thumbnail.png', description: 'Discover other cool websites.' },
 				],
 			};
 		},
-	mounted() {
-		setTimeout(() => {
-			this.isLoading = false;
-		}, 3000); // Adjust the time as needed
-	},
 	methods: {
 		goToSection(path) {
 		this.$router.push(path);
