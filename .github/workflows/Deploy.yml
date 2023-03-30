@@ -10,14 +10,12 @@ jobs:
         runs-on: ubuntu-latest
 
         steps:
-            - name: SSH and deploy node app
-              uses: appleboy/ssh-action@master
+            - name: SSH Execute Commands
+              uses: JimCronqvist/action-ssh@1.0.0
               with:
-                  host: ${{ secrets.SSH_HOST }}
-                  username: ${{ secrets.SSH_USERNAME }}
-                  key: ${{ secrets.SSH_KEY }}
-                  port: ${{ secrets.SSH_PORT }}
-                  script: |
+                  hosts: ${{ secrets.SSH_HOST }}
+                  privateKey: ${{ secrets.SSH_KEY }}
+                  command: |
                       cd ~/redlink2web
                       git pull
                       yarn install
