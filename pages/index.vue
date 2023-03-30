@@ -52,6 +52,7 @@
 
 
 <style scoped>
+	/* Wallpaper */
 	main {
 		min-height: 80vh;
 		margin: -.9vh;
@@ -154,12 +155,16 @@
 
 	/* Responsive Design */
 	@media screen and (max-width: 768px) {
+		main {
+			background-size: 16vh;
+		}
 		.title {
 			font-size: 4vh;
 		}
 
 		.container {
 			grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+			gap: 3vh;
 		}
 
 		.nav-item {
@@ -167,7 +172,7 @@
 		}
 
 		.thumbnail {
-			height: 20vh;
+			height: 25vh;
 			width: 50vw;
 		}
 
