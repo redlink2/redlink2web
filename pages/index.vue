@@ -28,11 +28,11 @@
 			return {
 				isLoading: true,
 				sections: [
-					{ name: 'Games', path: '/games', image: '/images/games-thumbnail.png', description: 'Play fun 90s games!' },
-					{ name: 'Art Gallery', path: '/gallery', image: '/images/art-gallery-thumbnail.png', description: 'Explore amazing artwork.' },
-					{ name: 'Blog', path: '/blog', image: '/images/blog-thumbnail.png', description: 'Read about interesting topics.' },
-					{ name: 'Startpage', path: '/startpage', image: '/assets/gallery/thumbs/start.png', description: 'Your personalized startpage.' },
-					{ name: 'Links', path: '/links', image: '/images/links-thumbnail.png', description: 'Discover other cool websites.' },
+					{ name: 'Games', path: '/games', image: '/pages/gallery/thumbs/shapes-in-red.png', description: 'Play fun 90s games!' },
+					{ name: 'Art Gallery', path: '/gallery', image: '/pages/gallery/thumbs/weird dude.png', description: 'Explore amazing artwork.' },
+					{ name: 'Blog', path: '/blog', image: '/pages/gallery/thumbs/weirdo.png', description: 'Read about interesting topics.' },
+					{ name: 'Startpage', path: '/startpage', image: '/pages/gallery/thumbs/start.png', description: 'Your personalized startpage.' },
+					{ name: 'Links', path: '/links', image: '/pages/gallery/thumbs/OntoSomethingNewCurtain.png', description: 'Discover other cool websites.' },
 				],
 			};
 		},
@@ -47,7 +47,7 @@
 
 <style scoped>
 	body {
-		background-image: url('/images/wavy.jpg');
+		background-image: url('/pulic/pages/wavy.png');
 		background-repeat: repeat;
 	}
 

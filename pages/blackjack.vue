@@ -69,8 +69,8 @@
 	},
 	methods: {
 		getCardImagePath(card, isHidden = false) {
-			if (isHidden) return import.meta.env.BASE_URL + 'assets/cards/hidden.png';
-			return `${import.meta.env.BASE_URL}assets/cards/${card.suit}/${card.value}.png`;
+			if (isHidden) return import.meta.env.BASE_URL + 'pages/games/blackjack/hidden.png';
+			return `${import.meta.env.BASE_URL}pages/games/blackjack/${card.suit}/${card.value}.png`;
 		},
 		createDeck() {
 			const suits = ["club", "diamond", "heart", "spade"];
