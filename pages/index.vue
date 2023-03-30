@@ -31,7 +31,7 @@
 					{ name: 'Games', path: '/games', image: '/pages/gallery/thumbs/shapes-in-red.png', description: 'Play fun 90s games!' },
 					{ name: 'Art Gallery', path: '/gallery', image: '/pages/gallery/thumbs/weird dude.png', description: 'Explore amazing artwork.' },
 					{ name: 'Blog', path: '/blog', image: '/pages/gallery/thumbs/weirdo.png', description: 'Read about interesting topics.' },
-					{ name: 'Startpage', path: '/startpage', image: '/pages/gallery/thumbs/start.png', description: 'Your personalized startpage.' },
+					{ name: 'Startpage', path: '/startpager', image: '/pages/gallery/thumbs/start.png', description: 'My personalized startpage.' },
 					{ name: 'Links', path: '/links', image: '/pages/gallery/thumbs/OntoSomethingNewCurtain.png', description: 'Discover other cool websites.' },
 				],
 			};
