@@ -1,0 +1,33 @@
+name: Deploy
+
+on:
+    push:
+        branches:
+            - main
+
+jobs:
+    deploy:
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Checkout repository
+              uses: actions/checkout@v2
+
+            - name: Set up Node.js
+              uses: actions/setup-node@v2
+              with:
+                  node-version: 16
+
+            - name: Install dependencies
+              run: yarn install
+
+            - name: Build project
+              run: yarn build
+
+            - name: Deploy to server
+              env:
+                  HOST: ${{ secrets.SERVER_HOST }}
+                  USER: ${{ secrets.SERVER_USER }}
+                  APP_PATH: ~/redlink2web
+              run: |
+                  ssh $USER@$HOST "cd $APP_PATH && git pull && yarn install && yarn build && pm2 delete nostalgia && pm2 start --watch --name 'nostalgia' ecosystem.config.js"
