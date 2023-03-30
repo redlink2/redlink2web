@@ -36,19 +36,28 @@
 				],
 			};
 		},
-	methods: {
-		goToSection(path) {
-		this.$router.push(path);
+		async fetch() {
+			document.body.classList.add('main');
 		},
-	},
-};
+		beforeUnmount() {
+			document.body.classList.remove('main');
+		},
+		methods: {
+			goToSection(path) {
+			this.$router.push(path);
+			},
+		},
+	};
 </script>
 
 
 <style scoped>
-	body {
-		background-image: url('/pulic/pages/wavy.png');
+	main {
+		min-height: 80vh;
+		margin: -.9vh;
+		background-image: url('/pages/nostalgia.png');
 		background-repeat: repeat;
+
 	}
 
 	/* Title */
