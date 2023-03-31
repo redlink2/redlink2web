@@ -105,7 +105,7 @@
 		display: grid;
 		grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
 		gap: 5vh;
-		padding-top: 2rem;
+		padding-top: 8vh;
 	}
 
 	/* Thumbnails */
@@ -165,6 +165,8 @@
 		.container {
 			grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
 			gap: 3vh;
+			padding-top: 3vh;
+			padding-left: 5vw;
 		}
 
 		.nav-item {
