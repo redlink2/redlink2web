@@ -93,6 +93,11 @@
 			this.playerCards.push(this.deck.pop());
 			this.dealerCards.push(this.deck.pop());
 			this.dealerCards.push(this.deck.pop());
+
+			// check if the player has blackjack
+			if (this.isBlackjack(this.playerCards)) {
+				this.endGame("Player has Blackjack! Player wins!");
+			}
 		},
 		cardScore(card) {
 			if (card.value > 10) return 10;
@@ -116,7 +121,10 @@
 			// check if the player has busted or has blackjack
 			if (this.handScore(this.playerCards) > 21) {
 				this.endGame("Player busts. Dealer wins!");
+			} else if (this.handScore(this.playerCards) === 21) {
+				this.endGame("Player has Blackjack! Player wins!");
 			}
+
 			if (this.bettingOpen === true) {
 				this.bettingOpen = false;
 			}
@@ -179,8 +187,8 @@
 		isBlackjack(hand) {
 			return (
 				hand.length === 2 &&
-				((hand[0].value === 'A' && this.cardScore(hand[1]) === 10) ||
-					(hand[1].value === 'A' && this.cardScore(hand[0]) === 10))
+				((hand[0].value === 0 && hand[1].value > 9) ||
+					(hand[1].value === 0 && hand[0].value > 9))
 			);
 		},
 		endGame(result) {
