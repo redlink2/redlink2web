@@ -28,7 +28,7 @@
 			return {
 				isLoading: true,
 				sections: [
-					{ name: 'Games', path: '/games', image: '/pages/gallery/thumbs/shapes-in-red.png', description: 'Play fun 90s games!' },
+					{ name: 'Games', path: '/games/games', image: '/pages/gallery/thumbs/shapes-in-red.png', description: 'Play fun 90s games!' },
 					{ name: 'Art Gallery', path: '/gallery', image: '/pages/gallery/thumbs/weird dude.png', description: 'Explore amazing artwork.' },
 					{ name: 'Blog', path: '/blog', image: '/pages/gallery/thumbs/weirdo.png', description: 'Read about interesting topics.' },
 					{ name: 'Startpage', path: '/startpager', image: '/pages/gallery/thumbs/start.png', description: 'My personalized startpage.' },
