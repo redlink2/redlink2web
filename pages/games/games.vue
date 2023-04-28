@@ -1,6 +1,7 @@
 <template>
 	<div>
-		<h1>Welcome to my website</h1>
+		<title>Games</title>
+		<h1>Play a game!</h1>
 		<ul>
 			<li><nuxt-link to="/">Home</nuxt-link></li>
 			<!-- tic-tac-toe -->
@@ -10,9 +11,29 @@
 			<!-- simon -->
 			<li><nuxt-link href="/games/simon">Simon</nuxt-link></li>
 			<!-- minesweeper -->
-			<li><a href="#">Coming Soon</a></li>
+			<li><a href="#" class="tba">Coming Soon</a></li>
 			<!-- hangman -->
-			<li><a href="#">Coming Soon</a></li>
+			<li><a href="#" class="tba">Coming Soon</a></li>
 		</ul>
 	</div>
 </template>
+
+<style scoped>
+	li {
+		margin-left: 3vw;
+		font-size: 5vh;
+	}
+	a {
+		text-decoration: none;
+		color: blue;
+	}
+	a:hover {
+		color: black;
+	}
+	a:visited {
+		color: red;
+	}
+	a.tba {
+		color: yellow;
+	}
+</style>
