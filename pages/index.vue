@@ -1,6 +1,6 @@
 <template>
 	<header class="navbar">
-		<h1 class="title">Redlink2's Playground</h1>
+		<Navbar />
 	</header>
 	<main>
 		<div class="container">
@@ -23,6 +23,8 @@
 </template>
 
 <script>
+	import Navbar from '~/components/Navbar.vue';
+
 	export default {
 		data() {
 			return {
@@ -52,55 +54,19 @@
 
 
 <style scoped>
-	/* Wallpaper */
+	html {
+		scroll-behavior: smooth;
+		cursor: url('/images/custom-cursor.png'), auto;
+	}
+
 	main {
 		min-height: 80vh;
 		margin: -.9vh;
+		padding: 10vh;
 		background-image: url('/pages/nostalgia.png');
 		background-repeat: repeat;
-
 	}
 
-	/* Title */
-	.title {
-		color: rgb(255, 0, 0);
-		font-size: 5vh;
-		font-family: 'Panic Sans', sans-serif;
-	}
-
-	/* Navbar */
-	.navbar {
-		position: fixed;
-		top: 0;
-		left: 0;
-		right: 0;
-		height: 10vh;
-		min-height: 50px;
-		background-color: gray;
-		background-size: cover;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		border-bottom: 1px solid black;
-		z-index: 100;
-	}
-
-	.nav-item {
-		color: rgb(255, 0, 0);
-		margin: 0 1rem;
-		text-decoration: none;
-		transition: color 0.3s ease;
-	}
-
-	.nav-item:hover {
-		color: rgb(0, 255, 0);
-	}
-
-	/* Main content */
-
-	main {
-		padding: 10vh;
-	}
 	.container {
 		display: grid;
 		grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -158,9 +124,6 @@
 		main {
 			background-size: 16vh;
 		}
-		.title {
-			font-size: 4vh;
-		}
 
 		.container {
 			grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
@@ -181,19 +144,5 @@
 		.thumbnail-hover {
 			padding-bottom: 5vh;
 		}
-	}
-
-	/* Custom Cursor */
-	body {
-		cursor: url('/images/custom-cursor.png'), auto;
-	}
-
-	body:hover .thumbnail {
-		cursor: pointer;
-	}
-
-	/* Smooth Scroll */
-	html {
-		scroll-behavior: smooth;
 	}
 </style>
