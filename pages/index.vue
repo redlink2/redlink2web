@@ -1,4 +1,5 @@
 <template>
+	<title>Playground</title>
 	<header class="navbar">
 		<Navbar />
 	</header>
