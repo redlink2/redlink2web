@@ -3,7 +3,7 @@
 		<div class="container">
 			<nav class="nav">
 				<nuxt-link class="logo" to="/">
-					<img src="~assets/logoTemp/TheStreet.png" alt="Logo" />
+					<img src="~assets/logo/redlink2.png" alt="Logo" />
 				</nuxt-link>
 				<div class="nav-links">
 					<nuxt-link class="nav-link nav-link-blue" to="/games/games">Games</nuxt-link>
