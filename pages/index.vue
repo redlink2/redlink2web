@@ -31,6 +31,7 @@
 	import weirdo from "@/assets/pages/gallery/thumbs/weirdo.png";
 	import newThing from "@/assets/pages/gallery/thumbs/newthing.png";
 	import start from "@/assets/pages/gallery/thumbs/start.png";
+	import desert from "@/assets/pages/gallery/thumbs/desert.png";
 
 	export default {
 		data() {
@@ -38,7 +39,7 @@
 				sections: [
 					{
 						name: "Games",
-						path: "/games/games",
+						path: "/games/playground",
 						image: shapes,
 						description: "Play a game!",
 					},
@@ -57,7 +58,7 @@
 					{
 						name: "Dummy",
 						path: "/",
-						image: newThing,
+						image: desert,
 						description: "Test!",
 					},
 					{
