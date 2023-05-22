@@ -15,4 +15,7 @@ export default defineNuxtConfig({
 		link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
 	},
 	components: true,
+	env: {
+		FAUNADB_KEY: process.env.FAUNADB_KEY,
+	},
 })
