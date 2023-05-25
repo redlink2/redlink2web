@@ -21,35 +21,26 @@
 	</div>
 </template>
 
-<script>
+<script setup>
+	import { ref, onMounted } from "vue";
 	import { Client, query as q } from "faunadb";
 
-	export default {
-		data() {
-			return {
-				images: [],
-			};
-		},
-		async mounted() {
-			const client = new Client({ secret: process.env.FAUNADB_GALLERY });
-			try {
-				const result = await client.query(
-					q.Map(
-						q.Paginate(q.Documents(q.Collection("Images"))),
-						q.Lambda((x) => q.Get(x))
-					)
-				);
-				this.images = result.data.map((item) => item.data); // parse the data field from each document
-			} catch (error) {
-				console.error("Error fetching images:", error);
-			}
-		},
-		methods: {
-			goToImage(path) {
-				this.$router.push(`/gallery/${path}`);
-			},
-		},
-	};
+	let images = ref([]); // using ref() to declare reactive variable
+
+	onMounted(async () => {
+		const client = new Client({ secret: import.meta.env.VITE_FAUNADB_KEY });
+		try {
+			const result = await client.query(
+				q.Map(
+					q.Paginate(q.Documents(q.Collection("Images"))),
+					q.Lambda((x) => q.Get(x))
+				)
+			);
+			images.value = result.data.map((item) => item.data); // parse the data field from each document
+		} catch (error) {
+			console.error("Error fetching images:", error);
+		}
+	});
 </script>
 
 <style scoped>
