@@ -92,7 +92,7 @@
 <style scoped>
 	html {
 		scroll-behavior: smooth;
-		cursor: url("@/assets/images/custom-cursor.png"), auto;
+		/* cursor: url("@/assets/images/custom-cursor.png"), auto; */
 	}
 
 	main {
