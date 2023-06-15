@@ -6,8 +6,8 @@
 					<img src="~assets/logo/redlink2.png" alt="Logo" />
 				</nuxt-link>
 				<div class="nav-links">
-					<nuxt-link class="nav-link nav-link-blue" to="/games/games">Games</nuxt-link>
-					<nuxt-link class="nav-link nav-link-red" to="/">Gallery</nuxt-link>
+					<nuxt-link class="nav-link nav-link-blue" to="/games/playground">Games</nuxt-link>
+					<nuxt-link class="nav-link nav-link-red" to="/gallery">Gallery</nuxt-link>
 					<nuxt-link class="nav-link nav-link-green" to="/">Blog</nuxt-link>
 					<nuxt-link class="nav-link nav-link-yellow" to="/">Contact</nuxt-link>
 				</div>
