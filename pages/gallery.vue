@@ -1,15 +1,15 @@
 <template>
-	<div>
-		<main>
-			<div class="container">
-				<GalleryImages
-					v-for="(image, index) in images"
-					:key="index"
-					:image="image"
-					v-if="images.length"
-				/>
-			</div>
-		</main>
+	<div class="container">
+		<MasonryWall
+			:items="images"
+			:ssr-columns="1"
+			:column-width="500"
+			:gap="32"
+		>
+			<template #default="{ item, index }">
+				<GalleryImages :image="item" v-if="images.length" />
+			</template>
+		</MasonryWall>
 	</div>
 </template>
 
@@ -18,6 +18,7 @@
 	import { Client, query as q } from "faunadb";
 	// import gallery images component
 	import GalleryImages from "../components/GalleryImages.vue";
+	import MasonryWall from "@yeger/vue-masonry-wall";
 
 	let images = ref([]);
 
@@ -52,20 +53,7 @@
 	}
 
 	.container {
-		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(30vw, 1fr));
-		gap: 2vw;
-		padding: 2vw;
-	}
-
-	/* Responsive Design */
-	@media screen and (max-width: 768px) {
-		.container {
-			background-size: 16vh;
-			grid-template-columns: repeat(auto-fit, minmax(15vw, 1fr));
-			gap: 3vh;
-			padding-top: 3vh;
-			padding-left: 5vw;
-		}
+		padding: 3vh;
+		background-color: purple;
 	}
 </style>

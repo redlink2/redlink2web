@@ -4,7 +4,7 @@
     "build": "nuxt build",
     "dev": "nuxt dev",
     "start": "nuxt start",
-	"open": "yarn dev -o",
+    "open": "yarn dev -o",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare"
@@ -14,6 +14,7 @@
     "nuxt": "^3.3.1"
   },
   "dependencies": {
+    "@yeger/vue-masonry-wall": "^4.0.3",
     "axios": "^1.3.4",
     "faunadb": "^4.8.0"
   }
