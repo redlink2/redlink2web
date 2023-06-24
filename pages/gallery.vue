@@ -5,6 +5,8 @@
 			:ssr-columns="ssrColumns"
 			:column-width="columnWidth"
 			:gap="gap"
+			:min-columns="minColumns"
+			:max-columns="maxColumns"
 		>
 			<template #default="{ item, index }">
 				<GalleryImages :image="item" v-if="images.length" />
@@ -24,25 +26,30 @@
 	let ssrColumns = ref(1);
 	let columnWidth = ref(500);
 	let gap = ref(32);
+	let minColumns = ref(2);
+	let maxColumns = ref(5);
 
 	const updateLayout = () => {
 		// mobile
 		if (window.innerWidth < 600) {
-			ssrColumns.value = 1;
-			columnWidth.value = 150;
-			gap.value = 15;
-		}
-		// tablet
-		else if (window.innerWidth < 900) {
 			ssrColumns.value = 2;
 			columnWidth.value = 150;
 			gap.value = 10;
+			minColumns.value = 2;
+		}
+		// tablet
+		else if (window.innerWidth < 900) {
+			ssrColumns.value = 3;
+			columnWidth.value = 200;
+			gap.value = 20;
+			minColumns.value = 3;
 		}
 		// desktop
 		else {
-			ssrColumns.value = 3;
+			ssrColumns.value = 5;
 			columnWidth.value = 500;
 			gap.value = 32;
+			minColumns.value = 5;
 		}
 	};
 
