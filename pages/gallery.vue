@@ -16,7 +16,7 @@
 </template>
 
 <script setup>
-	import { ref, onMounted, onUnmounted } from "vue";
+	import { ref, onMounted, onUnmounted, computed } from "vue";
 	import { Client, query as q } from "faunadb";
 	// import gallery images component
 	import GalleryImages from "../components/GalleryImages.vue";
@@ -24,21 +24,21 @@
 
 	let images = ref([]);
 	let ssrColumns = ref(1);
-	let columnWidth = ref(500);
 	let gap = ref(32);
 	let minColumns = ref(2);
 	let maxColumns = ref(5);
+	let windowWidth = ref(0); // Initialize with 0
 
 	const updateLayout = () => {
 		// mobile
-		if (window.innerWidth < 600) {
+		if (windowWidth.value < 600) {
 			ssrColumns.value = 2;
 			columnWidth.value = 150;
 			gap.value = 10;
 			minColumns.value = 2;
 		}
 		// tablet
-		else if (window.innerWidth < 900) {
+		else if (windowWidth.value < 900) {
 			ssrColumns.value = 3;
 			columnWidth.value = 200;
 			gap.value = 20;
@@ -53,9 +53,25 @@
 		}
 	};
 
+	const columnWidth = computed(() => {
+		if (windowWidth.value < 600) {
+			return 200;
+		} else if (windowWidth.value < 900) {
+			return 200;
+		} else {
+			return 500;
+		}
+	});
+
 	onMounted(async () => {
-		window.addEventListener("resize", updateLayout);
-		updateLayout();
+		if (typeof window !== "undefined") {
+			windowWidth.value = window.innerWidth;
+			window.addEventListener("resize", () => {
+				windowWidth.value = window.innerWidth;
+				updateLayout();
+			});
+			updateLayout();
+		}
 		const client = new Client({ secret: import.meta.env.VITE_FAUNADB_KEY });
 		try {
 			const result = await client.query(
@@ -75,7 +91,9 @@
 	});
 
 	onUnmounted(() => {
-		window.removeEventListener("resize", updateLayout);
+		if (typeof window !== "undefined") {
+			window.removeEventListener("resize", updateLayout);
+		}
 	});
 </script>
 
