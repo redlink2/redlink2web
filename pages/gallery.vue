@@ -1,77 +1,27 @@
 <template>
 	<div class="container">
-		<MasonryWall
-			:items="images"
-			:ssr-columns="ssrColumns"
-			:column-width="columnWidth"
-			:gap="gap"
-			:min-columns="minColumns"
-			:max-columns="maxColumns"
-		>
-			<template #default="{ item, index }">
-				<GalleryImages :image="item" v-if="images.length" />
-			</template>
-		</MasonryWall>
+		<div v-for="(image, index) in images" :key="index" class="grid-item">
+			<div class="thumbnail">
+				<img
+					:src="image.path"
+					:alt="image.name"
+					class="thumbnail-image"
+				/>
+				<div class="thumbnail-hover">
+					<p>{{ image.name }}</p>
+				</div>
+			</div>
+		</div>
 	</div>
 </template>
 
 <script setup>
-	import { ref, onMounted, onUnmounted, computed } from "vue";
+	import { ref, onMounted } from "vue";
 	import { Client, query as q } from "faunadb";
-	// import gallery images component
-	import GalleryImages from "../components/GalleryImages.vue";
-	import MasonryWall from "@yeger/vue-masonry-wall";
 
 	let images = ref([]);
-	let ssrColumns = ref(1);
-	let gap = ref(32);
-	let minColumns = ref(2);
-	let maxColumns = ref(5);
-	let windowWidth = ref(0); // Initialize with 0
-
-	const updateLayout = () => {
-		// mobile
-		if (windowWidth.value < 600) {
-			ssrColumns.value = 2;
-			columnWidth.value = 150;
-			gap.value = 10;
-			minColumns.value = 2;
-		}
-		// tablet
-		else if (windowWidth.value < 900) {
-			ssrColumns.value = 3;
-			columnWidth.value = 200;
-			gap.value = 20;
-			minColumns.value = 3;
-		}
-		// desktop
-		else {
-			ssrColumns.value = 5;
-			columnWidth.value = 500;
-			gap.value = 32;
-			minColumns.value = 5;
-		}
-	};
-
-	const columnWidth = computed(() => {
-		if (windowWidth.value < 600) {
-			return 200;
-		} else if (windowWidth.value < 900) {
-			return 200;
-		} else {
-			return 500;
-		}
-	});
 
 	onMounted(async () => {
-		if (typeof window !== "undefined") {
-			windowWidth.value = window.innerWidth;
-			window.addEventListener("resize", () => {
-				windowWidth.value = window.innerWidth;
-				updateLayout();
-			});
-			updateLayout();
-		}
 		const client = new Client({ secret: import.meta.env.VITE_FAUNADB_KEY });
 		try {
 			const result = await client.query(
@@ -89,34 +39,72 @@
 			console.error("Error fetching images:", error);
 		}
 	});
-
-	onUnmounted(() => {
-		if (typeof window !== "undefined") {
-			window.removeEventListener("resize", updateLayout);
-		}
-	});
 </script>
 
 <style scoped>
 	html {
 		scroll-behavior: smooth;
-	}
-
-	main {
-		background-color: purple;
 		background-repeat: repeat;
 	}
 
 	.container {
-		padding: 3vh;
 		background-color: purple;
+		display: grid;
+		grid-template-columns: repeat(5, 1fr);
+		grid-auto-rows: 20vh;
+		grid-gap: 2vw;
 	}
 
-	/* mobile layout */
-	@media (max-width: 900px) {
+	.grid-item {
+		border: 2px solid black;
+		text-align: center;
+		position: relative;
+		cursor: pointer;
+		overflow: hidden;
+	}
+
+	.thumbnail-image {
+		width: 100%;
+		height: 100%;
+		transition: transform 0.3s ease;
+		object-fit: cover;
+	}
+
+	.thumbnail:hover .thumbnail-image {
+		transform: scale(1.1);
+	}
+
+	.thumbnail-hover {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background-color: rgba(255, 0, 0, 0.5);
+		opacity: 0;
+		transition: opacity 0.3s ease;
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-end;
+		align-items: center;
+	}
+
+	.thumbnail:hover .thumbnail-hover {
+		opacity: 1;
+	}
+
+	@media (max-width: 50vw) {
 		.container {
-			padding: 0vh;
-			padding-top: 1vh;
+			grid-template-columns: repeat(3, 1fr);
+		}
+
+		.grid-item {
+			height: 25vh;
+			width: 50vw;
+		}
+
+		.thumbnail-hover {
+			padding-bottom: 5vh;
 		}
 	}
 </style>
