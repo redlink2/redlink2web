@@ -30,11 +30,17 @@
 					q.Lambda((x) => q.Get(x))
 				)
 			);
-			images.value = result.data.map((item) => item.data);
-			console.log(
-				"Fetched images:",
-				result.data.map((item) => item.data)
-			);
+
+			// Sort the images by aspect ratio
+			images.value = result.data
+				.map((item) => {
+					const image = item.data;
+					image.aspectRatio = image.width / image.height;
+					return image;
+				})
+				.sort((a, b) => a.aspectRatio - b.aspectRatio);
+
+			console.log("Fetched and sorted images:", images.value);
 		} catch (error) {
 			console.error("Error fetching images:", error);
 		}
