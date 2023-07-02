@@ -1,7 +1,7 @@
 <template>
 	<div class="container">
 		<div v-for="(image, index) in images" :key="index" class="grid-item">
-			<div class="thumbnail">
+			<div class="thumbnail" @click="openModal(image)">
 				<img
 					:src="image.path"
 					:alt="image.name"
@@ -12,6 +12,9 @@
 				</div>
 			</div>
 		</div>
+		<UModal v-model="showModal">
+			<img :src="currentImage.path" :alt="currentImage.name" />
+		</UModal>
 	</div>
 </template>
 
@@ -20,6 +23,13 @@
 	import { Client, query as q } from "faunadb";
 
 	let images = ref([]);
+	let showModal = ref(false);
+	let currentImage = ref({});
+
+	const openModal = (image) => {
+		currentImage.value = image;
+		showModal.value = true;
+	};
 
 	onMounted(async () => {
 		const client = new Client({ secret: import.meta.env.VITE_FAUNADB_KEY });
