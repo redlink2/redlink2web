@@ -8,7 +8,7 @@
 					class="thumbnail-image"
 				/>
 				<div class="thumbnail-hover">
-					<p>{{ image.name }}</p>
+					<!-- <p>{{ image.name }}</p> -->
 				</div>
 			</div>
 		</div>
@@ -55,7 +55,7 @@
 					image.aspectRatio = image.width / image.height;
 					return image;
 				})
-				.sort((a, b) => a.aspectRatio - b.aspectRatio);
+				// .sort((a, b) => a.aspectRatio - b.aspectRatio);
 
 			console.log("Fetched and sorted images:", images.value);
 		} catch (error) {
@@ -65,69 +65,42 @@
 </script>
 
 <style scoped>
-	html {
-		scroll-behavior: smooth;
-		background-repeat: repeat;
-	}
-
 	.container {
 		background-color: purple;
-		display: grid;
-		grid-template-columns: repeat(5, 1fr);
-		grid-auto-rows: 20vh;
-		grid-gap: 2vw;
+		column-count: 5;
+		column-gap: 1em;
 	}
 
 	.grid-item {
-		border: 2px solid black;
+		/* border: 2px solid black; */
 		text-align: center;
-		position: relative;
 		cursor: pointer;
-		overflow: hidden;
+		break-inside: avoid;
+		padding: 1em;
+		margin-bottom: 3vh;
+		box-sizing: border-box;
+		width: 100%;
 	}
 
 	.thumbnail-image {
 		width: 100%;
-		height: 100%;
-		transition: transform 0.3s ease;
-		object-fit: cover;
+		height: auto;
 	}
 
-	.thumbnail:hover .thumbnail-image {
-		transform: scale(1.1);
-	}
-
-	.thumbnail-hover {
-		position: absolute;
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: 100%;
-		background-color: rgba(255, 0, 0, 0.5);
-		opacity: 0;
-		transition: opacity 0.3s ease;
-		display: flex;
-		flex-direction: column;
-		justify-content: flex-end;
-		align-items: center;
-	}
-
-	.thumbnail:hover .thumbnail-hover {
-		opacity: 1;
-	}
-
-	@media (max-width: 50vw) {
+	/* Mobile styles */
+	@media (max-width: 600px) {
 		.container {
-			grid-template-columns: repeat(3, 1fr);
+			padding-top: 1vh;
+			column-count: 3;
 		}
 
 		.grid-item {
-			height: 25vh;
-			width: 50vw;
+			padding: 0.4vh;
+			margin-bottom: 1vh;
 		}
 
 		.thumbnail-hover {
-			padding-bottom: 5vh;
+			display: none;
 		}
 	}
 </style>
