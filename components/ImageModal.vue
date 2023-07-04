@@ -33,18 +33,14 @@
 	.modal-content {
 		position: relative;
 		margin: 15vh auto;
-		padding: 2vw;
 		width: 80vw;
 		max-width: 30vw;
-		box-shadow: 0 0.5vh 1.5vh rgba(0, 0, 0, 0.5);
-		background-color: #fff;
 	}
 
 	.close {
+		color: red;
 		position: absolute;
-		right: 1vw;
-		top: 1vw;
-		color: #aaa;
+		right: -2vw;
 		font-size: 2vw;
 		font-weight: bold;
 	}
@@ -59,7 +55,8 @@
 	img {
 		width: 100%;
 		height: auto;
+		max-height: 70vh;
 		object-fit: contain;
-		max-height: 70vh; /* Adjust this value as needed */
+		border-radius: 3vh;
 	}
 </style>
