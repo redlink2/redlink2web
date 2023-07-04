@@ -12,23 +12,30 @@
 				</div>
 			</div>
 		</div>
-		<UModal v-model="showModal">
-			<img :src="currentImage.path" :alt="currentImage.name" />
-		</UModal>
+		<image-modal
+			:is-open="isModalOpen"
+			:image="selectedImage"
+			@close="closeModal"
+		/>
 	</div>
 </template>
 
 <script setup>
 	import { ref, onMounted } from "vue";
 	import { Client, query as q } from "faunadb";
+	import ImageModal from "../components/ImageModal.vue";
 
 	let images = ref([]);
-	let showModal = ref(false);
-	let currentImage = ref({});
+	let isModalOpen = ref(false);
+	let selectedImage = ref(null);
 
 	const openModal = (image) => {
-		currentImage.value = image;
-		showModal.value = true;
+		selectedImage.value = image;
+		isModalOpen.value = true;
+	};
+
+	const closeModal = () => {
+		isModalOpen.value = false;
 	};
 
 	onMounted(async () => {
