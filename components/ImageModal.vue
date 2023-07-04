@@ -57,6 +57,22 @@
 		height: auto;
 		max-height: 70vh;
 		object-fit: contain;
-		border-radius: 3vh;
+		border-radius: 3vw;
+	}
+
+	/* Mobile styles */
+	@media (max-width: 600px) {
+		.modal-content {
+			width: 90vw;
+			max-width: 90vw;
+		}
+
+		img {
+			border-radius: 2vh;
+		}
+
+		.close {
+			display: none;
+		}
 	}
 </style>
