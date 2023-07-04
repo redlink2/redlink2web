@@ -24,8 +24,8 @@
 		z-index: 1;
 		left: 0;
 		top: 0;
-		width: 100%;
-		height: 100%;
+		width: 100vw;
+		height: 100vh;
 		overflow: auto;
 		background-color: rgba(0, 0, 0, 0.4);
 	}
@@ -35,7 +35,7 @@
 		margin: 15vh auto;
 		padding: 2vw;
 		width: 80vw;
-		max-width: 60vw;
+		max-width: 30vw;
 		box-shadow: 0 0.5vh 1.5vh rgba(0, 0, 0, 0.5);
 		background-color: #fff;
 	}
@@ -59,5 +59,7 @@
 	img {
 		width: 100%;
 		height: auto;
+		object-fit: contain;
+		max-height: 70vh; /* Adjust this value as needed */
 	}
 </style>
