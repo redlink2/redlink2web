@@ -1,7 +1,7 @@
 <template>
 	<div class="container">
 		<div v-for="(image, index) in images" :key="index" class="grid-item">
-			<div class="thumbnail">
+			<div class="thumbnail" @click="openModal(image)">
 				<img
 					:src="image.path"
 					:alt="image.name"
@@ -12,14 +12,31 @@
 				</div>
 			</div>
 		</div>
+		<image-modal
+			:is-open="isModalOpen"
+			:image="selectedImage"
+			@close="closeModal"
+		/>
 	</div>
 </template>
 
 <script setup>
 	import { ref, onMounted } from "vue";
 	import { Client, query as q } from "faunadb";
+	import ImageModal from "../components/ImageModal.vue";
 
 	let images = ref([]);
+	let isModalOpen = ref(false);
+	let selectedImage = ref(null);
+
+	const openModal = (image) => {
+		selectedImage.value = image;
+		isModalOpen.value = true;
+	};
+
+	const closeModal = () => {
+		isModalOpen.value = false;
+	};
 
 	onMounted(async () => {
 		const client = new Client({ secret: import.meta.env.VITE_FAUNADB_KEY });
