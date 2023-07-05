@@ -148,20 +148,23 @@
 
 	/* Responsive Design */
 	@media screen and (max-width: 768px) {
-		.container {
-			background-size: 16vh;
+		main {
+			min-height: 95vh; /* Change this line */
 		}
 
 		.container {
-			grid-template-columns: repeat(auto-fit, minmax(15vw, 1fr));
+			background-size: 10vh;
+			grid-template-columns: repeat(2, 1fr);
 			gap: 3vh;
 			padding-top: 3vh;
 			padding-left: 5vw;
 		}
 
 		.thumbnail {
-			height: 25vh;
-			width: 50vw;
+			border: none;
+			height: 20vh;
+			width: 40vw;
+			padding-bottom: 6vh;
 		}
 
 		.thumbnail-hover {
