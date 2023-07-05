@@ -1,14 +1,16 @@
 <template>
 	<div class="container">
-		<div v-for="(image, index) in images" :key="index" class="grid-item">
-			<div class="thumbnail" @click="openModal(image)">
-				<img
-					:src="image.path"
-					:alt="image.name"
-					class="thumbnail-image"
-				/>
-				<div class="thumbnail-hover">
-					<!-- <p>{{ image.name }}</p> -->
+		<div v-for="column in columns" :key="column.id" class="column">
+			<div v-for="image in column.images" :key="image.id" class="grid-item">
+				<div class="thumbnail" @click="openModal(image)">
+					<img
+						:src="image.path"
+						:alt="image.name"
+						class="thumbnail-image"
+					/>
+					<div class="thumbnail-hover">
+						<p>{{ image.name }}</p>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -28,6 +30,13 @@
 	let images = ref([]);
 	let isModalOpen = ref(false);
 	let selectedImage = ref(null);
+	let columns = ref([
+		{ id: 1, images: [] },
+		{ id: 2, images: [] },
+		{ id: 3, images: [] },
+		{ id: 4, images: [] },
+		{ id: 5, images: [] },
+	]);
 
 	const openModal = (image) => {
 		selectedImage.value = image;
@@ -61,6 +70,11 @@
 		} catch (error) {
 			console.error("Error fetching images:", error);
 		}
+		// Distribute images across columns
+		images.value.forEach((image, index) => {
+			const columnIndex = index % columns.value.length;
+			columns.value[columnIndex].images.push(image);
+		});
 	});
 </script>
 
