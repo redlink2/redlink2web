@@ -6,85 +6,98 @@
 					<img src="~assets/logo/redlink2.png" alt="Logo" />
 				</nuxt-link>
 				<div class="nav-links">
-					<nuxt-link class="nav-link nav-link-blue" to="/games/playground">Games</nuxt-link>
-					<nuxt-link class="nav-link nav-link-red" to="/gallery">Gallery</nuxt-link>
-					<nuxt-link class="nav-link nav-link-green" to="/">Blog</nuxt-link>
-					<nuxt-link class="nav-link nav-link-yellow" to="/">Contact</nuxt-link>
+					<nuxt-link
+						class="nav-link nav-link-blue"
+						to="/games/playground"
+						>Games</nuxt-link
+					>
+					<nuxt-link class="nav-link nav-link-red" to="/gallery"
+						>Gallery</nuxt-link
+					>
+					<nuxt-link class="nav-link nav-link-green" to="/"
+						>Blog</nuxt-link
+					>
+					<nuxt-link class="nav-link nav-link-yellow" to="/"
+						>Contact</nuxt-link
+					>
 				</div>
 			</nav>
 		</div>
 	</div>
 </template>
 
-<style>
-body {
-	margin: 0;
-}
+<style scoped>
+	.navbar {
+		position: sticky;
+		top: 0;
+		z-index: 50;
+		background-color: black;
+		box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+	}
 
-.navbar {
-	position: sticky;
-	top: 0;
-	z-index: 50;
-	background-color: black;
-	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-}
+	.fixed {
+		position: fixed;
+	}
 
-.container {
-	max-width: 100vw;
-	margin: 0 auto;
-	padding: 0 1vw;
-}
+	.sticky {
+		position: sticky;
+	}
 
-.nav {
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-	padding: 1vh 0;
-}
+	.container {
+		max-width: 100vw;
+		margin: 0 auto;
+		padding: 0 1vw;
+	}
 
-.logo {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	font-size: 3vh;
-	color: #fff;
-	text-decoration: none;
-}
+	nav {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		padding: 1vh 0;
+	}
 
-.logo img {
-	max-height: 4vh;
-	max-width: 100%;
-}
+	.logo {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		font-size: 3vh;
+		color: #fff;
+		text-decoration: none;
+	}
 
-.nav-links {
-	display: flex;
-	gap: 2vw;
-}
+	.logo img {
+		max-height: 4vh;
+		max-width: 100%;
+	}
 
-.nav-link {
-	color: #fff;
-	text-decoration: none;
-	font-size: 2vh;
-}
+	.nav-links {
+		display: flex;
+		gap: 2vw;
+	}
 
-.nav-link:hover {
-	text-decoration: underline;
-}
+	.nav-link {
+		color: #fff;
+		text-decoration: none;
+		font-size: 2vh;
+	}
 
-.nav-link-blue:hover {
-	color: rgb(20, 20, 177);
-}
+	.nav-link:hover {
+		text-decoration: underline;
+	}
 
-.nav-link-red:hover {
-	color: rgb(255, 0, 0);
-}
+	.nav-link-blue:hover {
+		color: rgb(20, 20, 177);
+	}
 
-.nav-link-green:hover {
-	color: rgb(0, 255, 0);
-}
+	.nav-link-red:hover {
+		color: rgb(255, 0, 0);
+	}
 
-.nav-link-yellow:hover {
-	color: rgb(255, 255, 0);
-}
+	.nav-link-green:hover {
+		color: rgb(0, 255, 0);
+	}
 
+	.nav-link-yellow:hover {
+		color: rgb(255, 255, 0);
+	}
 </style>
