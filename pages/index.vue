@@ -84,10 +84,11 @@
 	}
 
 	.container {
-		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(30vw, 1fr));
-		gap: 2vw;
-		padding: 2vw;
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		align-items: center;
+		height: 75%;
 	}
 
 	/* Thumbnails */
@@ -131,7 +132,6 @@
 
 	/* Responsive Design */
 	@media screen and (max-width: 768px) {
-
 		body {
 			overflow: hidden;
 		}
