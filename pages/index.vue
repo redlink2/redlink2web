@@ -88,7 +88,7 @@
 		flex-wrap: wrap;
 		justify-content: space-between;
 		align-items: center;
-		height: 75%;
+		height: 90%;
 		padding: 2vw;
 	}
 
