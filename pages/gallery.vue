@@ -105,7 +105,7 @@
 	@media (max-width: 600px) {
 		.container {
 			padding-top: 1vh;
-			column-count: 3;
+			column-count: 2;
 		}
 
 		.grid-item {
