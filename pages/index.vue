@@ -28,9 +28,6 @@
 <script>
 	import shapes from "@/assets/pages/gallery/thumbs/shapes.png";
 	import ogre from "@/assets/pages/gallery/thumbs/ogre.png";
-	import weirdo from "@/assets/pages/gallery/thumbs/weirdo.png";
-	import newThing from "@/assets/pages/gallery/thumbs/newthing.png";
-	import start from "@/assets/pages/gallery/thumbs/start.png";
 	import desert from "@/assets/pages/gallery/thumbs/desert.png";
 
 	export default {
@@ -52,26 +49,8 @@
 					{
 						name: "Blog",
 						path: "/blog",
-						image: weirdo,
-						description: "Read my blog!",
-					},
-					{
-						name: "Dummy",
-						path: "/",
 						image: desert,
-						description: "Test!",
-					},
-					{
-						name: "Startpage",
-						path: "/startpager",
-						image: start,
-						description: "My startpage!",
-					},
-					{
-						name: "Collection",
-						path: "/collection",
-						image: newThing,
-						description: "Visit your collection!",
+						description: "Read my blog!",
 					},
 				],
 			};
@@ -98,6 +77,9 @@
 	main {
 		background-image: url("@/assets/pages/nostalgia.png");
 		background-repeat: repeat;
+		background-size: auto;
+		background-position: center;
+		height: 100vh;
 	}
 
 	.container {
@@ -148,16 +130,23 @@
 
 	/* Responsive Design */
 	@media screen and (max-width: 768px) {
+
+		body {
+			overflow: hidden;
+		}
+
 		main {
-			min-height: 95vh; /* Change this line */
+			background-size: 15vh;
+			height: 93vh;
+			display: flex;
+			justify-content: center;
 		}
 
 		.container {
-			background-size: 10vh;
-			grid-template-columns: repeat(2, 1fr);
-			gap: 3vh;
-			padding-top: 3vh;
-			padding-left: 5vw;
+			display: flex;
+			flex-direction: column;
+			justify-content: space-evenly;
+			height: 90vh;
 		}
 
 		.thumbnail {
@@ -169,6 +158,14 @@
 
 		.thumbnail-hover {
 			padding-bottom: 5vh;
+		}
+
+		.thumbnail:nth-child(even) {
+			margin-right: 25vw;
+		}
+
+		.thumbnail:nth-child(odd) {
+			margin-left: 25vw;
 		}
 	}
 </style>
