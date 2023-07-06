@@ -1,5 +1,5 @@
 <template>
-	<div class="navbar">
+	<div class="navbar" :class="{ fixed: isIndexPage, sticky: !isIndexPage }">
 		<div class="container">
 			<nav class="nav">
 				<nuxt-link class="logo" to="/">
@@ -26,9 +26,19 @@
 	</div>
 </template>
 
+<script>
+	export default {
+		computed: {
+			isIndexPage() {
+				return this.$route.path === "/";
+			},
+		},
+	};
+</script>
+
 <style scoped>
 	.navbar {
-		position: sticky;
+		width: 100vw;
 		top: 0;
 		z-index: 50;
 		background-color: black;
@@ -37,10 +47,12 @@
 
 	.fixed {
 		position: fixed;
+		width: 100%;
 	}
 
 	.sticky {
 		position: sticky;
+		width: 100%;
 	}
 
 	.container {

@@ -139,7 +139,7 @@
 
 		main {
 			background-size: 15vh;
-			height: 93vh;
+			height: 100vh;
 			display: flex;
 			justify-content: center;
 		}
@@ -148,6 +148,7 @@
 			display: flex;
 			flex-direction: column;
 			justify-content: space-evenly;
+			padding-top: 8vh;
 			height: 90vh;
 		}
 
