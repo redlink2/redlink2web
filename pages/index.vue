@@ -26,9 +26,10 @@
 </template>
 
 <script>
-	import shapes from "@/assets/pages/gallery/thumbs/shapes.png";
 	import ogre from "@/assets/pages/gallery/thumbs/ogre.png";
-	import desert from "@/assets/pages/gallery/thumbs/desert.png";
+	import shapes from "@/assets/pages/gallery/thumbs/shapes.png";
+	import mirror from "@/assets/pages/gallery/thumbs/Mirror.png";
+	import flower from "@/assets/pages/gallery/thumbs/FlowerGuy.png";
 
 	export default {
 		data() {
@@ -43,13 +44,13 @@
 					{
 						name: "Art Gallery",
 						path: "/gallery",
-						image: ogre,
+						image: mirror,
 						description: "View some art!",
 					},
 					{
 						name: "Blog",
 						path: "/blog",
-						image: desert,
+						image: flower,
 						description: "Read my blog!",
 					},
 				],
