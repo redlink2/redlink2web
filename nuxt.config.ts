@@ -1,13 +1,5 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-	router: {
-		routes: [
-			{
-				path: "/gallery",
-				component: "~/pages/gallery.vue",
-			},
-		],
-	},
 	server: {
 		port: 3000,
 		host: "0.0.0.0",
