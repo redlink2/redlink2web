@@ -8,7 +8,7 @@
 				<div class="nav-links">
 					<nuxt-link
 						class="nav-link nav-link-blue"
-						to="/games/playground"
+						to="/playground"
 						>Games</nuxt-link
 					>
 					<nuxt-link class="nav-link nav-link-red" to="/gallery"

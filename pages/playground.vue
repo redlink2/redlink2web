@@ -3,7 +3,6 @@
 		<title class="title">Playground</title>
 		<h1>Play a game!</h1>
 		<ul>
-			<li><nuxt-link to="/">Home</nuxt-link></li>
 			<!-- tic-tac-toe -->
 			<li><nuxt-link href="/games/tictactoe">Tic-Tac-Toe</nuxt-link></li>
 			<!-- blackjack -->
@@ -14,6 +13,8 @@
 			<li><a href="#" class="tba">Coming Soon</a></li>
 			<!-- hangman -->
 			<li><a href="#" class="tba">Coming Soon</a></li>
+			<!-- home -->
+			<li><nuxt-link to="/">Home</nuxt-link></li>
 		</ul>
 	</div>
 </template>

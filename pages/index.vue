@@ -38,7 +38,7 @@
 				sections: [
 					{
 						name: "Games",
-						path: "/games/playground",
+						path: "/playground",
 						image: shapes,
 						description: "Play a game!",
 					},
