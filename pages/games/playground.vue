@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<title>Games</title>
+		<title class="title">Playground</title>
 		<h1>Play a game!</h1>
 		<ul>
 			<li><nuxt-link to="/">Home</nuxt-link></li>

@@ -1,7 +1,12 @@
 <template>
 	<div class="container">
+		<title class="title">Art Gallery</title>
 		<div v-for="column in columns" :key="column.id" class="column">
-			<div v-for="image in column.images" :key="image.id" class="grid-item">
+			<div
+				v-for="image in column.images"
+				:key="image.id"
+				class="grid-item"
+			>
 				<div class="thumbnail" @click="openModal(image)">
 					<img
 						:src="image.path"
@@ -58,13 +63,12 @@
 			);
 
 			// Sort the images by aspect ratio
-			images.value = result.data
-				.map((item) => {
-					const image = item.data;
-					image.aspectRatio = image.width / image.height;
-					return image;
-				})
-				// .sort((a, b) => a.aspectRatio - b.aspectRatio);
+			images.value = result.data.map((item) => {
+				const image = item.data;
+				image.aspectRatio = image.width / image.height;
+				return image;
+			});
+			// .sort((a, b) => a.aspectRatio - b.aspectRatio);
 
 			console.log("Fetched and sorted images:", images.value);
 		} catch (error) {

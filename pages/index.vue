@@ -1,6 +1,7 @@
 <template>
 	<div>
 		<main>
+			<title class="title">~Home~</title>
 			<div class="container">
 				<div
 					v-for="(section, index) in thumbs"
