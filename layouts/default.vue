@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<Navbar v-if="showDesktopNavbar" />
+		<Navbar v-if="desktop" />
 		<NavbarMobile v-else />
 		<NuxtPage />
 	</div>
@@ -16,12 +16,12 @@
 			NavbarMobile,
 		},
 		computed: {
-			showDesktopNavbar() {
+			desktop() {
 				if (process.client) {
 					return window.innerWidth >= 800;
-					return true;
-				}else {
 					return false;
+				}else {
+					return true;
 				}
 			},
 		},
