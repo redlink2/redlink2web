@@ -149,7 +149,6 @@
 			display: flex;
 			flex-direction: column;
 			justify-content: space-evenly;
-			padding-top: 8vh;
 			height: 90vh;
 		}
 
