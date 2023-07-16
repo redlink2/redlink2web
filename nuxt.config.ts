@@ -18,6 +18,9 @@ export default defineNuxtConfig({
 		link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
 	},
 	components: true,
+	plugins: [
+		{ src: 'plugins/supabase.js', mode: 'client' },
+	],
 	env: {
 		FAUNADB_KEY: process.env.FAUNADB_KEY,
 	},
