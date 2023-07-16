@@ -27,6 +27,7 @@
 </template>
 
 <script>
+	// Import images
 	import ogre from "@/assets/pages/gallery/thumbs/ogre.png";
 	import shapes from "@/assets/pages/gallery/thumbs/shapes.png";
 	import mirror from "@/assets/pages/gallery/thumbs/Mirror.png";
@@ -36,18 +37,21 @@
 		data() {
 			return {
 				sections: [
+					// Games section
 					{
 						name: "Games",
 						path: "/playground",
 						image: shapes,
 						description: "Play a game!",
 					},
+					// Gallery section
 					{
 						name: "Art Gallery",
 						path: "/gallery",
 						image: mirror,
 						description: "View some art!",
 					},
+					// Blog section
 					{
 						name: "Blog",
 						path: "/blog",
@@ -57,11 +61,14 @@
 				],
 			};
 		},
+
 		computed: {
+			// Thumbnails
 			thumbs() {
 				return this.sections;
 			},
 		},
+
 		methods: {
 			goToSection(path) {
 				this.$router.push(path);
