@@ -14,7 +14,7 @@
 					<nuxt-link class="nav-link nav-link-red" to="/gallery"
 						>Gallery</nuxt-link
 					>
-					<nuxt-link class="nav-link nav-link-green" to="/"
+					<nuxt-link class="nav-link nav-link-green" to="/blog"
 						>Blog</nuxt-link
 					>
 					<nuxt-link class="nav-link nav-link-yellow" to="/"

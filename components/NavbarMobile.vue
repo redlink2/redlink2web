@@ -5,7 +5,7 @@
 				<div class="icon"></div>
 				About
 			</nuxt-link>
-			<nuxt-link class="nav-item" to="/">
+			<nuxt-link class="nav-item" to="/blog">
 				<div class="icon"></div>
 				Blog
 			</nuxt-link>
