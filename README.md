@@ -1,4 +1,4 @@
-# ~Redlink2Web~
+# \~Redlink2Web~
 
 Redlink2Web is a web application built with Nuxt.js. It features an image gallery and games like Simon and Tic Tac Toe. The application also interacts with a database, possibly FaunaDB.
 
